@@ -7,8 +7,14 @@ app = Flask(__name__)
 
 servicos = [{"id": e, "descricao": "Servico: "+str(e), "vl_obra": "500,00", "vl_total": "750,00", "dt_inicial": "01/11/2021", "dt_final": "15/11/2021", "imagem": "https://arcondicionadorefrival.com/wp-content/uploads/2019/02/como-instalar-ar-condicionado-split-1-e1549932371685.jpg"} for e in range(1, 16)]
 
-@app.route("/servicos", methods=['GET'])
+usuario = [{"login": "aluno", "senha": "impacta"}]
+
+@app.route("/usuario", methods=['GET'])
 def get():
+    return jsonify(usuario)
+
+@app.route("/servicos", methods=['GET'])
+def get_usuario():
     return jsonify(servicos)
 
 
